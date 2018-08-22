@@ -5,20 +5,22 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Install Docker
 
-* System dependencies
+* Open docker preferences -> File sharing tab & add the rails project path. This is to enable the changes in the host to be reflected in the docker machine.
 
-* Configuration
+* docker-compose build
 
-* Database creation
+* docker-compose up
 
-* Database initialization
+* `docker ps` will list the created containers.
 
-* How to run the test suite
+If any task fails, 
 
-* Services (job queues, cache servers, search engines, etc.)
+`docker exec -it machine_name bash`
 
-* Deployment instructions
+To get inside the machine. And run the task
 
-* ...
+* Hit www.mywebsite.org in browser to use the app.
+
+* Sign up a user and then use it to sign in.
