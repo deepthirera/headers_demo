@@ -51,6 +51,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def create_votes
+    @vote = Vote.find_or_initialize_by(post_id: vote_params[:post_id], user_id: current_user.id)
+
+    respond_to do |format|
+      if @vote.save
+        format.html { redirect_to @vote, notice: 'vote was successfully created.' }
+        format.json { render :show, status: :created, location: @vote }
+      else
+        format.html { render :new }
+        format.json { render json: @vote.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
@@ -70,5 +84,9 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :content)
+    end
+
+    def vote_params
+      params.require(:vote).permit(:post_id)
     end
 end

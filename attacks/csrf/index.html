@@ -15,7 +15,7 @@
 <button type="button" onclick="lesson2()">Lesson2</button>
  -->
 <script>
-  window.onload = loadBlogPosts();
+  window.onload = createVotes();
 // function loadXMLDoc() {
 //   var xhttp = new XMLHttpRequest();
 //   xhttp.onreadystatechange = function() {
@@ -39,13 +39,40 @@ function loadBlogPosts() {
   xhttp.open("POST", "http://www.mywebsite.org/posts", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.withCredentials = true;
-  xhttp.send("post[title]=Deepthi&post[content]=Ford");
+  xhttp.send("post[title]=EvilGuy&post[content]=The best post&post[votes]=100000");
+};
+
+function createVotes() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      console.log(document.cookie);
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("POST", "http://www.mywebsite.org/vote", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.withCredentials = true;
+  xhttp.send("vote[post_id]=8");
+};
+
+function updateVotes() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      console.log(document.cookie);
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = "Updated Votes Count";
+    }
+  };
+  xhttp.open("PUT", "http://www.mywebsite.org/posts/1", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.withCredentials = true;
+  xhttp.send("post[title]=Dhananjayan&post[content]=Hi_everybody&post[votes]=10000&id=1");
 };
 
 function allowOrigin() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-  		console.log(document.cookie);
 		if (this.readyState == 4 && this.status == 200) {
 			document.getElementById("demo").innerHTML = this.responseText;
 		}
