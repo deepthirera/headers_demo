@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   match 'posts', to: 'posts#update', via: [:options]
   resources :posts
   match 'vote', to: 'posts#create_votes', via: [:post]
+  match 'upvote', to: 'posts#up_vote', via: [:post]
+  match 'downvote', to: 'posts#down_vote', via: [:post]
   root to: "posts#index"
 
 
