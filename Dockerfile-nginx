@@ -23,7 +23,7 @@ COPY config/nginx/nginx.conf /etc/nginx/nginx.conf
 # put the final config in its place
 # RUN envsubst '$RAILS_ROOT' < /tmp/docker_example.nginx > /etc/nginx/conf.d/default.conf
 # RUN rm -rf /etc/nginx/sites-available/default
-COPY config/nginx/blog_docker.conf /etc/nginx/conf.d/blog.conf
+COPY config/nginx/docker_nginx.conf /etc/nginx/conf.d/blog.conf
 
 EXPOSE 80
 
