@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<section class="container text-center">
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
@@ -12,4 +12,7 @@
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+</section>
+<div style="margin-top:150px">
 <%= render 'disqus' %>
+</div>
